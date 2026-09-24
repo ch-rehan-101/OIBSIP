@@ -1,0 +1,532 @@
+/* =====================================
+   RESET
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            #dce9ff,
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #f7f9fc,
+            #e9eef7
+        );
+
+    color: #172033;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================
+   PAGE
+===================================== */
+
+.page {
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 50px 20px;
+}
+
+
+/* =====================================
+   MAIN CARD
+===================================== */
+
+.converter-card {
+    width: min(100%, 650px);
+
+    background: #ffffff;
+
+    border: 1px solid #e4e8f0;
+
+    border-radius: 22px;
+
+    padding: 45px;
+
+    box-shadow:
+        0 25px 70px rgba(30, 45, 75, 0.12);
+}
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+.header {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+
+.thermometer-icon {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 0 auto 18px;
+
+    background: #eef4ff;
+
+    border-radius: 18px;
+
+    font-size: 2rem;
+}
+
+
+.label {
+    color: #477ff0;
+
+    font-size: 0.72rem;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+
+.header h1 {
+    font-size: clamp(2.2rem, 6vw, 3.4rem);
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 15px;
+}
+
+
+.header h1 span {
+    color: #477ff0;
+}
+
+
+.subtitle {
+    max-width: 480px;
+
+    margin: auto;
+
+    color: #6c7485;
+
+    font-size: 0.95rem;
+}
+
+
+/* =====================================
+   FORM
+===================================== */
+
+#converterForm {
+    display: grid;
+
+    gap: 20px;
+}
+
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.form-group label {
+    color: #343c4d;
+
+    font-size: 0.82rem;
+
+    font-weight: 700;
+}
+
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    height: 52px;
+
+    padding: 0 15px;
+
+    background: #f9fafc;
+
+    color: #1d2638;
+
+    border: 1px solid #dfe4ed;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    font-size: 0.9rem;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #477ff0;
+
+    box-shadow:
+        0 0 0 3px rgba(71, 127, 240, 0.1);
+}
+
+
+.form-group input::placeholder {
+    color: #a2a9b7;
+}
+
+
+/* Remove number arrows */
+
+.form-group input::-webkit-outer-spin-button,
+.form-group input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+
+    margin: 0;
+}
+
+
+.form-group input[type="number"] {
+    appearance: textfield;
+}
+
+
+/* =====================================
+   BUTTON
+===================================== */
+
+.convert-button {
+    width: 100%;
+
+    height: 52px;
+
+    margin-top: 5px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #477ff0;
+
+    color: white;
+
+    font-size: 0.9rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.convert-button:hover {
+    background: #376bd2;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(71, 127, 240, 0.25);
+}
+
+
+.convert-button:active {
+    transform: translateY(0);
+}
+
+
+/* =====================================
+   MESSAGES
+===================================== */
+
+.message {
+    display: none;
+
+    margin-top: 20px;
+
+    padding: 14px 16px;
+
+    border-radius: 9px;
+
+    font-size: 0.82rem;
+
+    font-weight: 600;
+}
+
+
+.error-message {
+    background: #fff0f0;
+
+    border: 1px solid #ffd2d2;
+
+    color: #c63c3c;
+}
+
+
+.error-message.show {
+    display: block;
+}
+
+
+/* =====================================
+   RESULTS
+===================================== */
+
+.results {
+    margin-top: 30px;
+
+    padding-top: 28px;
+
+    border-top: 1px solid #e9ecf2;
+}
+
+
+.results-header {
+    margin-bottom: 15px;
+
+    color: #8991a1;
+
+    font-size: 0.68rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+.result-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+
+.result-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 17px 12px;
+
+    background: #f8faff;
+
+    border: 1px solid #e8edf5;
+
+    border-radius: 10px;
+}
+
+
+.result-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #e9f0ff;
+
+    color: #477ff0;
+
+    font-size: 0.78rem;
+
+    font-weight: 800;
+}
+
+
+.result-icon.fahrenheit {
+    background: #fff0e8;
+
+    color: #e87838;
+}
+
+
+.result-icon.kelvin {
+    background: #eeeaff;
+
+    color: #795be8;
+}
+
+
+.result-card p {
+    color: #7d8493;
+
+    font-size: 0.68rem;
+
+    margin-bottom: 2px;
+}
+
+
+.result-card h2 {
+    color: #20293b;
+
+    font-size: 1rem;
+
+    line-height: 1.2;
+
+    word-break: break-word;
+}
+
+
+/* =====================================
+   INFORMATION
+===================================== */
+
+.info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-top: 25px;
+
+    padding: 13px 15px;
+
+    background: #f5f8fc;
+
+    border-radius: 8px;
+
+    color: #7c8493;
+
+    font-size: 0.7rem;
+}
+
+
+.info span {
+    flex-shrink: 0;
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer {
+    margin-top: 25px;
+
+    text-align: center;
+
+    color: #8991a0;
+
+    font-size: 0.7rem;
+}
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 600px) {
+
+    .page {
+        padding: 25px 15px;
+    }
+
+
+    .converter-card {
+        padding: 30px 22px;
+
+        border-radius: 17px;
+    }
+
+
+    .header {
+        margin-bottom: 28px;
+    }
+
+
+    .header h1 {
+        font-size: 2.35rem;
+    }
+
+
+    .subtitle {
+        font-size: 0.85rem;
+    }
+
+
+    .result-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .result-card {
+        padding: 14px;
+    }
+
+}
+
+
+@media (max-width: 350px) {
+
+    .converter-card {
+        padding: 25px 17px;
+    }
+
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+
+    .thermometer-icon {
+        width: 55px;
+        height: 55px;
+
+        font-size: 1.6rem;
+    }
+
+}
