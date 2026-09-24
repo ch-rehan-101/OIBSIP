@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Temperature Converter - Convert Celsius, Fahrenheit and Kelvin">
+
+    <title>Temperature Converter</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <main class="page">
+
+        <section class="converter-card">
+
+            <!-- Header -->
+
+            <div class="header">
+
+                <div class="thermometer-icon">
+                    🌡️
+                </div>
+
+                <p class="label">
+                    TEMPERATURE TOOL
+                </p>
+
+                <h1>
+                    Temperature
+                    <span>Converter</span>
+                </h1>
+
+                <p class="subtitle">
+                    Quickly convert temperatures between
+                    Celsius, Fahrenheit and Kelvin.
+                </p>
+
+            </div>
+
+
+            <!-- Converter Form -->
+
+            <form id="converterForm">
+
+                <!-- Temperature Input -->
+
+                <div class="form-group">
+
+                    <label for="temperature">
+                        Temperature
+                    </label>
+
+                    <input
+                        type="number"
+                        id="temperature"
+                        name="temperature"
+                        placeholder="Enter temperature"
+                        step="any"
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <!-- Unit Selector -->
+
+                <div class="form-group">
+
+                    <label for="unit">
+                        Input Unit
+                    </label>
+
+                    <select id="unit" name="unit">
+
+                        <option value="celsius">
+                            Celsius (°C)
+                        </option>
+
+                        <option value="fahrenheit">
+                            Fahrenheit (°F)
+                        </option>
+
+                        <option value="kelvin">
+                            Kelvin (K)
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Convert Button -->
+
+                <button
+                    type="submit"
+                    class="convert-button">
+
+                    Convert Temperature →
+
+                </button>
+
+            </form>
+
+
+            <!-- Error Message -->
+
+            <div
+                id="errorMessage"
+                class="message error-message"
+                role="alert">
+
+            </div>
+
+
+            <!-- Results -->
+
+            <section
+                id="results"
+                class="results"
+                aria-live="polite">
+
+                <div class="results-header">
+
+                    <span>
+                        CONVERTED VALUES
+                    </span>
+
+                </div>
+
+
+                <div class="result-grid">
+
+
+                    <!-- Celsius -->
+
+                    <div class="result-card">
+
+                        <div class="result-icon">
+                            °C
+                        </div>
+
+                        <div>
+
+                            <p>
+                                Celsius
+                            </p>
+
+                            <h2 id="celsiusResult">
+                                —
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Fahrenheit -->
+
+                    <div class="result-card">
+
+                        <div class="result-icon fahrenheit">
+                            °F
+                        </div>
+
+                        <div>
+
+                            <p>
+                                Fahrenheit
+                            </p>
+
+                            <h2 id="fahrenheitResult">
+                                —
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Kelvin -->
+
+                    <div class="result-card">
+
+                        <div class="result-icon kelvin">
+                            K
+                        </div>
+
+                        <div>
+
+                            <p>
+                                Kelvin
+                            </p>
+
+                            <h2 id="kelvinResult">
+                                —
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Information -->
+
+            <div class="info">
+
+                <span>ℹ️</span>
+
+                <p>
+                    Absolute zero is −273.15°C,
+                    −459.67°F, or 0 K.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+
+            <p>
+                Temperature Converter • Built with HTML, CSS & JavaScript
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
